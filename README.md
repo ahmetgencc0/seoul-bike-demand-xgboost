@@ -49,19 +49,19 @@ All candidates used the `reg:squarederror` objective.
 
 ## Exploratory analysis
 
-![Average hourly rentals by hour of day](assets/hourly.png)
+![Average hourly rentals by hour of day](hourly.png)
 
 The original dataset shows commute-period peaks near **08:00** (~1,020 rentals per hour on average) and **18:00** (~1,500 rentals). Rental counts generally rise with temperature, but the relationship is nonlinear. Summer has the highest average rentals per hour (**1,034.07**); winter the lowest (**225.54**). These are **observational associations**, not causal conclusions.
 
 ## Error diagnostics and interpretation
 
-![Actual versus predicted rentals](assets/actual_predicted.png)
+![Actual versus predicted rentals](actual_predicted.png)
 
 - **Systematic underprediction:** With residual defined as actual minus predicted, the average test residual was **+114.43 rentals**. The residual standard deviation was **249.11**, and the largest absolute test error was **1,044.29**.
 - **Peak-hour weakness:** MAE was highest at **18:00 (562.82)** and **08:00 (533.77)**. The corresponding mean residuals were **+542.39** and **+457.81**.
 - **Feature importance:** Temperature (**39.29%**) and hour (**30.95%**) collectively represented **70.24% of total gain**. Gain-based importance describes the fitted model; it does not establish causality.
 
-![XGBoost total-gain feature importance](assets/feature_importance.png)
+![XGBoost total-gain feature importance](feature_importance.png)
 
 ## Limitations and next steps
 
